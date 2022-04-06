@@ -29,7 +29,7 @@ function fetchCurrentWeather() {
         .then(function (data) {
             console.log(data);
 
-            // ^^ WORKS^^
+            // ^^ WORKS ^^
 
             // City Name
             var cityName = data.name;
@@ -50,7 +50,7 @@ function fetchCurrentWeather() {
             console.log("Humudity: " + humidity);
             // console.log("UX: " + UV);
 
-            // ^^ WORKS^^
+            // ^^ WORKS ^^
 
             // Latitude
             var lat = data.coord.lat;
@@ -69,20 +69,68 @@ function fetchCurrentWeather() {
             .then(function (data) {
                 console.log(data);
 
-            // ^^ WORKS^^
+            // ^^ WORKS ^^
 
                 tempEl.textContent = "Temp: " + temperature + " \u2109";
                 windEl.textContent = "Wind: " + wind + " MPH";
                 humidityEl.textContent = "Humidity: " + humidity + " %";
                 city.textContent = cityName + " (" + current + ")";
+
+                for (var i = 1; i < 6; i++) {
+
+                    // var day1 = document.getElementById("day_1");
+                    // var day2 = document.getElementById("day_2");
+                    // var day3 = document.getElementById("day_3");
+                    // var day4 = document.getElementById("day_4");
+                    // var day5 = document.getElementById("day_5");
+
+                    var futureTemp1 = document.getElementById("futureTemp1");
+                    var futureWind1 = document.getElementById("futureWind1");
+                    var futurueHumidity1 = document.getElementById("futurueHumidity1");
+                    var futureUV1 = document.getElementById("futureUV1")
+                    
+                    // futureTemp1.textCont = allNextNexts
+
+                    // icon
+                    var nextIcon = data.daily[i].weather[0].icon;
+                    // temp
+                    var nextTemp = data.daily[i].temp;
+                    // day
+                    var nextDailyTime = data.daily[i].dt;
+                    // wind
+                    var nextWind = data.daily[i].wind_speed;
+                    // humudity
+                    var nextHumidity = data.daily[i].humidity;
+                    // UV
+                    var nextUV = data.daily[i].uvi;
+
+                    console.log("Future icon ID: " + nextIcon);
+                    console.log("Future time: " + nextDailyTime);
+                    console.log("Future Wind: " + nextWind);
+                    console.log("Future UV: " + nextUV);
+
+                    // ^^ WORKS ^^
+
+                    var nextNextIcon = [nextIcon];
+                    var nextNextTemp = [nextTemp];
+                    var nextNextWind = [nextWind];
+                    var nextNextHumidity = [nextHumidity]
+                    var nextNextUV = [nextUV];
+
+                    var allNextNexts = [nextNextIcon, nextNextTemp, nextNextWind, nextNextHumidity, nextNextUV];
+
+
+                    console.log(allNextNexts)
+
+            
+
+                    
+                }
             })
-        })
-
-
-
-      
+        }) 
 }
-// use .split() for after the ,
+
+
 
 $('#button').on('click', fetchCurrentWeather);
 
@@ -102,5 +150,9 @@ $('#button').on('click', fetchCurrentWeather);
 
 // EXTRA info ---------------------------------------------------------------------------------------------------------------------------
 
+// Open Weather API
 // https://api.openweathermap.org/data/2.5/weather?q=Denver&appid=c033c7c10efdd914b13fe192a963baac (change the city name and API key; remove brackets)
 // ^^^ You can also add link into search engine to see the Object and its data
+
+// One Call API
+// https://api.openweathermap.org/data/2.5/onecall?lat=39.7392&lon=-104.9847&exclude={part}&appid=c033c7c10efdd914b13fe192a963baac

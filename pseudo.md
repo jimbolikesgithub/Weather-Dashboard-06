@@ -12,7 +12,7 @@
     * In function, add textContent to var elements
 // -----------------------------------------------------------------------
 3. Create a for loop for 5-Day Forecast
-    * 
+    * Create a for loop to iterate
 
 4. Use Bootstrap to build HTML (and custom stylings, too)
     * Create a header
